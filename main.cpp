@@ -1,10 +1,10 @@
 #include <iostream>
 #include <GL/glut.h>
 #include "ObjLoader.hpp"
-string filePath = "../Car_Obj/Porsche_911_GT2.obj";
+string filePath = "Car_Obj/Porsche_911_GT2.obj";
 
 ObjLoader objModel = ObjLoader(filePath);
-Bessel_Obj_Loader Bessel_Flag_Obj = Bessel_Obj_Loader("/home/cxy/CG-2022/myObj/Bessel_flag.obj");
+Bessel_Obj_Loader Bessel_Flag_Obj = Bessel_Obj_Loader("Bessel_flag.obj");
 
 //实现移动鼠标观察模型所需变量
 static float c = 3.1415926 / 180.0f;
@@ -21,19 +21,6 @@ float eyeX, eyeY, eyeZ, lookX, lookY, lookZ,
 void setLightRes() {
     GLfloat lightPosition[] = { 0.0f, 0.0f, 1.0f, 0.0f };
     glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
-
-	// // set the ambient light colour    
-	// GLfloat lightA[4] = {0.0,0.9,0.9,1};
-	// glLightfv(GL_LIGHT0, GL_AMBIENT, lightA);
-
-	// // set the specular light colour         
-	// GLfloat lightS[4] = {0.9,0.9,0.9,1.0};
-	// glLightfv(GL_LIGHT0, GL_SPECULAR, lightS);
-
-	// // set the diffuse light colour
-	// GLfloat lightD[4] = {0.9,0.9,0.9,1.0};
-	// glLightfv(GL_LIGHT0, GL_DIFFUSE, lightD);  
-
     glEnable(GL_LIGHTING); //启用光源
     glEnable(GL_LIGHT0);   //使用指定灯光
 }
@@ -99,7 +86,6 @@ void changeViewPoint(int x, int y)
 
 void myIdle()
 {
-    L_tree.Growth();
     glutPostRedisplay();
 }
 
@@ -119,7 +105,7 @@ int main(int argc, char* argv[])
     glutInit(&argc, argv);
     init();
     glutDisplayFunc(display);
-    // glutReshapeFunc(reshape);
+    glutReshapeFunc(reshape);
     glutKeyboardFunc(keyboard);
     glutMouseFunc(moseMove);
     glutMotionFunc(changeViewPoint);

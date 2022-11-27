@@ -7,8 +7,8 @@
 
 CXX = g++
 EXEC = ObjLoader
-SOURCES = main.cpp ObjLoader.cpp Lsystem.cpp
-OBJECTS = main.o ObjLoader.o Lsystem.o
+SOURCES = main.cpp ObjLoader.cpp
+OBJECTS = main.o ObjLoader.
 LDFLAGS = -lglut -lGL -lGLU -std=c++11
 
 all :

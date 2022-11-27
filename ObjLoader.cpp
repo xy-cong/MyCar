@@ -27,9 +27,6 @@ ObjLoader::ObjLoader(string filename)
             GLfloat x, y, z;
             std::istringstream s(line.substr(2));
             s >> x; s >> y; s >> z;
-            x *= 100;
-            y *= 100;
-            z *= 100;
             Point.push_back(x);
             Point.push_back(y);
             Point.push_back(z);
@@ -158,9 +155,6 @@ Bessel_Obj_Loader::Bessel_Obj_Loader(string filename){
             GLfloat x, y, z;
             std::istringstream s(line.substr(2));
             s >> x; s >> y; s >> z;
-            x *= 100;
-            y *= 100;
-            z *= 100;
             Point.push_back(x);
             Point.push_back(y);
             Point.push_back(z);
